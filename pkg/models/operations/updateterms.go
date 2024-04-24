@@ -7,6 +7,17 @@ import (
 	"net/http"
 )
 
+type UpdateTermsGlobals struct {
+	OrganizationID int64 `pathParam:"style=simple,explode=false,name=organizationId"`
+}
+
+func (o *UpdateTermsGlobals) GetOrganizationID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.OrganizationID
+}
+
 type UpdateTermsRequest struct {
 	UpdateTermsRequest shared.UpdateTermsRequest `request:"mediaType=application/json"`
 	TeamID             int64                     `pathParam:"style=simple,explode=false,name=teamId"`

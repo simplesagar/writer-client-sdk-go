@@ -7,6 +7,17 @@ import (
 	"net/http"
 )
 
+type GenerateContentGlobals struct {
+	OrganizationID int64 `pathParam:"style=simple,explode=false,name=organizationId"`
+}
+
+func (o *GenerateContentGlobals) GetOrganizationID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.OrganizationID
+}
+
 type GenerateContentRequest struct {
 	GenerateTemplateRequest shared.GenerateTemplateRequest `request:"mediaType=application/json"`
 	TeamID                  int64                          `pathParam:"style=simple,explode=false,name=teamId"`

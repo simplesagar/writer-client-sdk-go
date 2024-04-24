@@ -7,6 +7,17 @@ import (
 	"net/http"
 )
 
+type ListModelCustomizationsGlobals struct {
+	OrganizationID int64 `pathParam:"style=simple,explode=false,name=organizationId"`
+}
+
+func (o *ListModelCustomizationsGlobals) GetOrganizationID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.OrganizationID
+}
+
 type ListModelCustomizationsRequest struct {
 	ModelID        string `pathParam:"style=simple,explode=false,name=modelId"`
 	OrganizationID *int64 `pathParam:"style=simple,explode=false,name=organizationId"`

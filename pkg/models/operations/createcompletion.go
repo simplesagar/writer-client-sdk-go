@@ -7,6 +7,17 @@ import (
 	"net/http"
 )
 
+type CreateCompletionGlobals struct {
+	OrganizationID int64 `pathParam:"style=simple,explode=false,name=organizationId"`
+}
+
+func (o *CreateCompletionGlobals) GetOrganizationID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.OrganizationID
+}
+
 type CreateCompletionRequest struct {
 	CompletionRequest shared.CompletionRequest `request:"mediaType=application/json"`
 	ModelID           string                   `pathParam:"style=simple,explode=false,name=modelId"`

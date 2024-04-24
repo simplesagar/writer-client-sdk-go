@@ -7,6 +7,17 @@ import (
 	"net/http"
 )
 
+type ListTemplatesGlobals struct {
+	OrganizationID int64 `pathParam:"style=simple,explode=false,name=organizationId"`
+}
+
+func (o *ListTemplatesGlobals) GetOrganizationID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.OrganizationID
+}
+
 type ListTemplatesRequest struct {
 	TeamID         int64  `pathParam:"style=simple,explode=false,name=teamId"`
 	TemplateID     string `pathParam:"style=simple,explode=false,name=templateId"`

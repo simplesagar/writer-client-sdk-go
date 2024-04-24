@@ -7,6 +7,17 @@ import (
 	"net/http"
 )
 
+type UploadFileGlobals struct {
+	OrganizationID int64 `pathParam:"style=simple,explode=false,name=organizationId"`
+}
+
+func (o *UploadFileGlobals) GetOrganizationID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.OrganizationID
+}
+
 type UploadFileRequest struct {
 	UploadModelFileRequest shared.UploadModelFileRequest `request:"mediaType=multipart/form-data"`
 	OrganizationID         *int64                        `pathParam:"style=simple,explode=false,name=organizationId"`

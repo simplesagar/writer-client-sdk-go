@@ -9,6 +9,17 @@ import (
 	"net/http"
 )
 
+type FindTermsGlobals struct {
+	OrganizationID int64 `pathParam:"style=simple,explode=false,name=organizationId"`
+}
+
+func (o *FindTermsGlobals) GetOrganizationID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.OrganizationID
+}
+
 type PartOfSpeech string
 
 const (

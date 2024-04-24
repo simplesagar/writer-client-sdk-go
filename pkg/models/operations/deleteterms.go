@@ -7,6 +7,17 @@ import (
 	"net/http"
 )
 
+type DeleteTermsGlobals struct {
+	OrganizationID int64 `pathParam:"style=simple,explode=false,name=organizationId"`
+}
+
+func (o *DeleteTermsGlobals) GetOrganizationID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.OrganizationID
+}
+
 type DeleteTermsRequest struct {
 	TeamID         int64   `pathParam:"style=simple,explode=false,name=teamId"`
 	XRequestID     *string `header:"style=simple,explode=false,name=X-Request-ID"`

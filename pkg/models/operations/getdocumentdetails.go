@@ -7,6 +7,17 @@ import (
 	"net/http"
 )
 
+type GetDocumentDetailsGlobals struct {
+	OrganizationID int64 `pathParam:"style=simple,explode=false,name=organizationId"`
+}
+
+func (o *GetDocumentDetailsGlobals) GetOrganizationID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.OrganizationID
+}
+
 type GetDocumentDetailsRequest struct {
 	DocumentID     int64  `pathParam:"style=simple,explode=false,name=documentId"`
 	TeamID         int64  `pathParam:"style=simple,explode=false,name=teamId"`

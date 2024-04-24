@@ -6,6 +6,17 @@ import (
 	"net/http"
 )
 
+type DeleteFileGlobals struct {
+	OrganizationID int64 `pathParam:"style=simple,explode=false,name=organizationId"`
+}
+
+func (o *DeleteFileGlobals) GetOrganizationID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.OrganizationID
+}
+
 type DeleteFileRequest struct {
 	FileID         string `pathParam:"style=simple,explode=false,name=fileId"`
 	OrganizationID *int64 `pathParam:"style=simple,explode=false,name=organizationId"`

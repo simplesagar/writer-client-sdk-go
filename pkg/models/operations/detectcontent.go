@@ -7,6 +7,17 @@ import (
 	"net/http"
 )
 
+type DetectContentGlobals struct {
+	OrganizationID int64 `pathParam:"style=simple,explode=false,name=organizationId"`
+}
+
+func (o *DetectContentGlobals) GetOrganizationID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.OrganizationID
+}
+
 type DetectContentRequest struct {
 	ContentDetectorRequest shared.ContentDetectorRequest `request:"mediaType=application/json"`
 	OrganizationID         *int64                        `pathParam:"style=simple,explode=false,name=organizationId"`

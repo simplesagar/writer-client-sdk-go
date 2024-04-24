@@ -6,6 +6,17 @@ import (
 	"net/http"
 )
 
+type DeleteModelCustomizationGlobals struct {
+	OrganizationID int64 `pathParam:"style=simple,explode=false,name=organizationId"`
+}
+
+func (o *DeleteModelCustomizationGlobals) GetOrganizationID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.OrganizationID
+}
+
 type DeleteModelCustomizationRequest struct {
 	CustomizationID string `pathParam:"style=simple,explode=false,name=customizationId"`
 	ModelID         string `pathParam:"style=simple,explode=false,name=modelId"`
