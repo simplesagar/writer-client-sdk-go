@@ -1,0 +1,9 @@
+workflowVersion: 1.0.0
+sources:
+    my-source:
+        inputs:
+            - location: https://raw.githubusercontent.com/speakeasy-sdks/w-ai-openapi/main/openapi.yaml
+targets:
+    writer-go:
+        target: go
+        source: my-source
