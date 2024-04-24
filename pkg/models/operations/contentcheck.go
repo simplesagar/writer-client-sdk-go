@@ -7,6 +7,17 @@ import (
 	"net/http"
 )
 
+type ContentCheckGlobals struct {
+	OrganizationID int64 `pathParam:"style=simple,explode=false,name=organizationId"`
+}
+
+func (o *ContentCheckGlobals) GetOrganizationID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.OrganizationID
+}
+
 type ContentCheckRequest struct {
 	ContentRequest shared.ContentRequest `request:"mediaType=application/json"`
 	TeamID         int64                 `pathParam:"style=simple,explode=false,name=teamId"`

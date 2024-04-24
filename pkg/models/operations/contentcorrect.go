@@ -7,6 +7,17 @@ import (
 	"net/http"
 )
 
+type ContentCorrectGlobals struct {
+	OrganizationID int64 `pathParam:"style=simple,explode=false,name=organizationId"`
+}
+
+func (o *ContentCorrectGlobals) GetOrganizationID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.OrganizationID
+}
+
 type ContentCorrectRequest struct {
 	ContentRequest shared.ContentRequest `request:"mediaType=application/json"`
 	TeamID         int64                 `pathParam:"style=simple,explode=false,name=teamId"`

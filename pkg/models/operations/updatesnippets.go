@@ -7,6 +7,17 @@ import (
 	"net/http"
 )
 
+type UpdateSnippetsGlobals struct {
+	OrganizationID int64 `pathParam:"style=simple,explode=false,name=organizationId"`
+}
+
+func (o *UpdateSnippetsGlobals) GetOrganizationID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.OrganizationID
+}
+
 type UpdateSnippetsRequest struct {
 	TeamID         int64                  `pathParam:"style=simple,explode=false,name=teamId"`
 	RequestBody    []shared.SnippetUpdate `request:"mediaType=application/json"`

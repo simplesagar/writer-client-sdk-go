@@ -7,6 +7,17 @@ import (
 	"net/http"
 )
 
+type CreateModelCustomizationGlobals struct {
+	OrganizationID int64 `pathParam:"style=simple,explode=false,name=organizationId"`
+}
+
+func (o *CreateModelCustomizationGlobals) GetOrganizationID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.OrganizationID
+}
+
 type CreateModelCustomizationRequest struct {
 	CreateCustomizationRequest shared.CreateCustomizationRequest `request:"mediaType=application/json"`
 	ModelID                    string                            `pathParam:"style=simple,explode=false,name=modelId"`

@@ -7,6 +7,17 @@ import (
 	"net/http"
 )
 
+type DeleteSnippetsGlobals struct {
+	OrganizationID int64 `pathParam:"style=simple,explode=false,name=organizationId"`
+}
+
+func (o *DeleteSnippetsGlobals) GetOrganizationID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.OrganizationID
+}
+
 type DeleteSnippetsRequest struct {
 	TeamID         int64    `pathParam:"style=simple,explode=false,name=teamId"`
 	XRequestID     *string  `header:"style=simple,explode=false,name=X-Request-ID"`

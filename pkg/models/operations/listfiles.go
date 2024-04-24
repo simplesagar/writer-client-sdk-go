@@ -7,6 +7,17 @@ import (
 	"net/http"
 )
 
+type ListFilesGlobals struct {
+	OrganizationID int64 `pathParam:"style=simple,explode=false,name=organizationId"`
+}
+
+func (o *ListFilesGlobals) GetOrganizationID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.OrganizationID
+}
+
 type ListFilesRequest struct {
 	OrganizationID *int64 `pathParam:"style=simple,explode=false,name=organizationId"`
 }
